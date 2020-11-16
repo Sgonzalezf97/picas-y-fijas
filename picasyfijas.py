@@ -73,7 +73,7 @@ def resultados():
         if (elementos[3]== elementos[1]):
             ganador.append(int(elementos[4]))      
     if (elementos[4]== str(max(ganador))):
-        print("el ganador es: "+elementos[0]+" con: "+elementos[4]+" vidas")     
+        print("el ganador en "+elementos[1]+" cifras es: "+elementos[0]+" con: "+elementos[4]+" vidas")     
     f.close()
 
 i=inicio()
