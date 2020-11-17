@@ -1,5 +1,7 @@
+#se importa para poder utilizar los numeros aleatorios
 from random import randint
 
+#genera un numero para adivinar
 def generar_secreto(cantidad):
     secreto = []
     while True:
@@ -10,6 +12,7 @@ def generar_secreto(cantidad):
             break
     return secreto
 
+#este apartado verifica que el numero que ingresas tenga el mismo tamaño que el que se va a adivinar
 def verificacion(s, n):
     if len(s) != len(n):
         print('Las listas no tiene el mismo tamaño')
@@ -18,9 +21,13 @@ def verificacion(s, n):
             return True
         else: 
             return False
+
+#este apartado nos deja almacenar el nombre del concursante
 nombres=[]
 nombre= nombres
-nombre=(input("porfavor dijite su nombre: "))
+nombre=(input("por favor dijite su nombre: "))
+
+# este apartado nos dice si tenemos fijas o picas en nuestro numero
 def picas(s,n):
     pica=0
     fija=0
@@ -37,8 +44,10 @@ def picas(s,n):
     print(int(pica)," picas")
     print(int(fija),"fijas")
             
+# se genera el numero secreto
+s = generar_secreto(int(input("ingrese cantidad de cifras(3,4,5): ")))
 
-s = generar_secreto(int(input("ingrese cantidad de cifras: ")))
+#realiza el inicio del juego poniendo el nivel del juego
 def inicio():
     ganador=False
     if(len(s)<=3):
@@ -65,6 +74,7 @@ def inicio():
         f.close()    
     print("intenta con otra cantidad de cifras")
 
+#nos muestra y almacena los registros de cada intento segun el usuario
 def resultados():
     f = open("picasyfijas.txt", "r")
     ganador= []
@@ -76,6 +86,7 @@ def resultados():
         print("el ganador en "+elementos[1]+" cifras es: "+elementos[0]+" con: "+elementos[4]+" vidas")     
     f.close()
 
+# se inicializa todo
 i=inicio()
 r=resultados()
 
