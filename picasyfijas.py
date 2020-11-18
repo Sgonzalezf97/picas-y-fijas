@@ -58,6 +58,7 @@ def inicio():
         vidas=30
     while(vidas>0):
         print("tiene ",vidas," intentos")
+        print(s)
         n = [int(x) for x in input("ingrese un numero: ")]
         verificacion(s,n)
         picas(s,n)
@@ -81,13 +82,15 @@ def resultados():
     for linea in f.readlines():
         elementos =[str(x) for x in linea.split(",")]
         if (elementos[3]== elementos[1]):
-            ganador.append(int(elementos[4]))      
-    if (elementos[4]== str(max(ganador))):
-        print("el ganador en "+elementos[1]+" cifras es: "+elementos[0]+" con: "+elementos[4]+" vidas")     
+            ganador.append(int(elementos[4])) 
+    f.close()
+    f = open("picasyfijas.txt", "r")
+    for line in f.readlines():
+        elemento =[str(y) for y in line.split(",")]
+        if (((elemento[3]== elemento[1]) & (elemento[4]== str(max(ganador))))):     
+            print("el ganador en "+elemento[1]+" cifras es: "+elemento[0]+" con: "+elemento[4]+" vidas")     
     f.close()
 
 # se inicializa todo
 i=inicio()
 r=resultados()
-
-
